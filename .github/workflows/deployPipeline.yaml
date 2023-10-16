@@ -9,6 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
+if: ${{ github.event_name == 'push' }}
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
@@ -23,7 +24,7 @@ jobs:
       - name: Install dependencies
         run:  npm install
 
-  tag_release & deployment:
+  tag_release and deployment:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     steps:
