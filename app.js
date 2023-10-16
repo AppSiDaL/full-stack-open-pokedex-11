@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 /* global process */
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 10000
 
 app.use(express.static('dist'))
 
