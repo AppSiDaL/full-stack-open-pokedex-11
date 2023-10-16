@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run:  npm install
 
-  tag_release and deployment:
+  tag_release_and_deployment:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' }}
