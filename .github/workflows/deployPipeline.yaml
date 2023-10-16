@@ -24,11 +24,6 @@ jobs:
       - name: Install dependencies
         run:  npm install
 
-  tag_release_and_deployment:
-    needs: [simple_deployment_pipeline]
-    runs-on: ubuntu-20.04
-    if: ${{ github.event_name == 'push' }}
-    steps:
       - name: Check style
         run:  npm run eslint
 
@@ -51,6 +46,11 @@ jobs:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}      
 
+
+  tag_release_and_deployment:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    steps:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.64.0
         env:
