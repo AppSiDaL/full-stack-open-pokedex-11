@@ -53,9 +53,9 @@ jobs:
           DEFAULT_BUMP : patch
 
       - name: Test Success
-          uses: rjstone/discord-webhook-notify@v1.0.4
-          if: ${{ success() }}
-          with:
-              severity: info
-              details: Test Succeeded!
-              webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        if: ${{ success() }}
+        with:
+            severity: info
+            details: Test Succeeded!
+            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
